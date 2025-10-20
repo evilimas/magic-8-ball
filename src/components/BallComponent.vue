@@ -54,6 +54,7 @@ const handleBallClick = (): void => {
 <template>
   <div class="ball-container">
     <h1>Magic 8-Ball</h1>
+    <p>Click and Shake the ball to get your answer</p>
     <div class="image-wrapper" :class="{ shake: isShaking }">
       <img
         v-show="!isActive"
@@ -80,7 +81,11 @@ const handleBallClick = (): void => {
 .ball-container {
   text-align: center;
 }
-
+p {
+  margin: 0;
+  font-size: 2em;
+  color: rgb(3, 23, 24);
+}
 .image-wrapper {
   position: relative;
   display: inline-block;
@@ -96,7 +101,7 @@ const handleBallClick = (): void => {
 h1 {
   text-align: center;
   font-family: 'Arial', sans-serif;
-  color: #dddddd;
+  color: #000000;
 }
 
 img {
@@ -126,7 +131,8 @@ img {
   height: 0;
   border-left: 140px solid transparent;
   border-right: 140px solid transparent;
-  border-bottom: 300px solid #00008b;
+  border-bottom: 300px solid #00009c;
+
   position: relative;
   display: flex;
   align-items: center;

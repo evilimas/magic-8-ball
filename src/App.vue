@@ -10,6 +10,6 @@ import BallComponent from './components/BallComponent.vue';
 
 <style scoped>
 div {
-  background-color: rgb(87, 87, 87);
+  background-color: rgb(141, 141, 141);
 }
 </style>
