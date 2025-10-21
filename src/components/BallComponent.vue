@@ -3,46 +3,53 @@ import { ref } from 'vue';
 
 const isActive = ref<boolean>(false);
 const isShaking = ref<boolean>(false);
-// Magic 8-Ball answers array
-const answers: string[] = [
-  // Positive answers
-  'It is certain',
-  'It is decidedly so',
-  'Without a doubt',
-  'Yes definitely',
-  'You may rely on it',
-  'As I see it, yes',
-  'Most likely',
-  'Outlook good',
-  'Yes',
-  'Signs point to yes',
+const currentAnswer = ref<string>('');
 
-  // Non-committal answers
-  'Reply hazy, try again',
-  'Ask again later',
-  'Better not tell you now',
-  'Cannot predict now',
-  'Concentrate and ask again',
+// const answers: string[] = [
+//   // Positive answers
+//   'It is certain',
+//   'It is decidedly so',
+//   'Without a doubt',
+//   'Yes definitely',
+//   'You may rely on it',
+//   'As I see it, yes',
+//   'Most likely',
+//   'Outlook good',
+//   'Yes',
+//   'Signs point to yes',
 
-  // Negative answers
-  "Don't count on it",
-  'My reply is no',
-  'My sources say no',
-  'Outlook not so good',
-  'Very doubtful',
-];
+//   // Non-committal answers
+//   'Reply hazy, try again',
+//   'Ask again later',
+//   'Better not tell you now',
+//   'Cannot predict now',
+//   'Concentrate and ask again',
 
-const getRandomAnswer = (): string => {
-  const randomIndex = Math.floor(Math.random() * answers.length);
-  return answers[randomIndex]!;
+//   // Negative answers
+//   "Don't count on it",
+//   'My reply is no',
+//   'My sources say no',
+//   'Outlook not so good',
+//   'Very doubtful',
+// ];
+
+const getRandomAnswer = async (): Promise<string> => {
+  try {
+    const response = await fetch('http://localhost:3000/answer');
+    const data = await response.json();
+    return data.answer;
+  } catch (error) {
+    console.error('Error fetching answer:', error);
+    return 'Ask again later'; // fallback answer
+  }
 };
-const handleBallClick = (): void => {
+const handleBallClick = async (): Promise<void> => {
   if (isActive.value) return;
   isShaking.value = true;
-  setTimeout(() => {
+  setTimeout(async () => {
     isShaking.value = false;
     isActive.value = true;
-    const answer = getRandomAnswer();
+    currentAnswer.value = await getRandomAnswer();
 
     setTimeout(() => {
       isActive.value = false;
@@ -70,7 +77,7 @@ const handleBallClick = (): void => {
       />
       <div v-show="isActive" class="empty">
         <div class="triangle">
-          <span>{{ getRandomAnswer() }}</span>
+          <span>{{ currentAnswer }}</span>
         </div>
       </div>
     </div>
