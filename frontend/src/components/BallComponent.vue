@@ -91,7 +91,7 @@ const handleBallClick = async (): Promise<void> => {
 p {
   margin: 0;
   font-size: 2em;
-  color: rgb(3, 23, 24);
+  color: rgb(3, 32, 34);
 }
 .image-wrapper {
   position: relative;
@@ -147,14 +147,13 @@ img {
   color: white;
   font-weight: bold;
   font-size: 26px;
-  text-align: center;
   transform: rotate(180deg);
   margin-top: 30px;
 }
 span {
-  display: block;
+  /* display: block; */
   padding-bottom: 380px;
-  width: 280px;
+  /* width: 280px; */
   transform: rotate(180deg);
 }
 
