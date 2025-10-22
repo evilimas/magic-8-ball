@@ -28,4 +28,12 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+<<<<<<< HEAD
 backend/ShakeMyBalls/ShakeMyBalls/obj/
+=======
+
+/backend/obj
+/backend/bin
+
+
+>>>>>>> c7d49cd (Hei)
