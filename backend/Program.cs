@@ -4,7 +4,7 @@ const string CorsPolicy = "vite-dev";
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: CorsPolicy, policy =>
-        policy.WithOrigins("http://localhost:5173")
+        policy.WithOrigins("http://localhost:5173", "http://localhost:5174")
               .AllowAnyHeader()
               .AllowAnyMethod());
 });
