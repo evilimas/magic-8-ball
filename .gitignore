@@ -24,12 +24,11 @@ coverage
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
+# *.sln
 *.sw?
 
 *.tsbuildinfo
 
 /backend/obj
 /backend/bin
-
 
