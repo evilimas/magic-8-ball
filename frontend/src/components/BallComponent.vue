@@ -40,7 +40,7 @@ const getRandomAnswer = async (): Promise<string> => {
     return data.answer;
   } catch (error) {
     console.error('Error fetching answer:', error);
-    return 'Ask again later'; // fallback answer
+    return 'Ask again later';
   }
 };
 const handleBallClick = async (): Promise<void> => {
@@ -54,7 +54,7 @@ const handleBallClick = async (): Promise<void> => {
     setTimeout(() => {
       isActive.value = false;
     }, 4000);
-  }, 1000);
+  }, 1500);
 };
 </script>
 
@@ -139,7 +139,6 @@ img {
   border-left: 140px solid transparent;
   border-right: 140px solid transparent;
   border-bottom: 300px solid #00009c;
-
   position: relative;
   display: flex;
   align-items: center;
@@ -148,12 +147,10 @@ img {
   font-weight: bold;
   font-size: 26px;
   transform: rotate(180deg);
-  margin-top: 30px;
+  margin-top: 60px;
 }
 span {
-  /* display: block; */
   padding-bottom: 380px;
-  /* width: 280px; */
   transform: rotate(180deg);
 }
 
